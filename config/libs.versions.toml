@@ -1,0 +1,23 @@
+[versions]
+coroutines = "1.8.0"
+kotlin = "2.0.0-RC2"
+ksp = "2.0.0-RC2-1.0.20"
+kinject = "0.6.3"
+detekt = "1.23.6"
+napier = "2.6.1"
+
+[libraries]
+kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlin-inject-runtime = { module = "me.tatarka.inject:kotlin-inject-runtime", version.ref = "kinject" }
+kotlin-inject-compiler = { module = "me.tatarka.inject:kotlin-inject-compiler-ksp", version.ref = "kinject" }
+
+detekt-gradlePlugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
+detekt-formatter = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
+detekt-faireRules = { module = "com.github.Faire:faire-detekt-rules", version = "v0.1.1" }
+detekt-hbMartinRules = { module = "com.github.hbmartin:hbmartin-detekt-rules", version = "0.1.4" }
+
+napier = { module = "io.github.aakira:napier", version.ref = "napier" }
+
+[plugins]
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }

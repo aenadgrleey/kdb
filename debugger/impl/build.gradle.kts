@@ -1,21 +1,14 @@
+import com.aenadgrleey.kdb.plugins.KDB
+
 plugins {
-    kotlin("jvm")
-}
-
-group = "com.aenadgrleey"
-version = "1.0-SNAPSHOT"
-
-repositories {
-    mavenCentral()
+    id("kotlin-config")
 }
 
 dependencies {
+    implementation(project(KDB.api))
     testImplementation(kotlin("test"))
 }
 
 tasks.test {
     useJUnitPlatform()
-}
-kotlin {
-    jvmToolchain(17)
 }

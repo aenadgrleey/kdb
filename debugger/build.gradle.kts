@@ -4,11 +4,7 @@ plugins {
     id("kotlin-config")
 }
 
-
 dependencies {
-    implementation(project(KDB.debugger))
-}
-
-kotlin {
-    jvmToolchain(17)
+    api(project(KDB.api))
+    implementation(project(KDB.impl))
 }

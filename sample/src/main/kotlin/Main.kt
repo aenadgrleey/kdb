@@ -1,5 +1,8 @@
 package com.aenadgrleey
 
+import com.aenadgrleey.kdb.Debugger
+import com.aenadgrleey.kdb.model.DebuggerTool
+
 fun main() {
-    println("Hello World!")
+    Debugger(DebuggerTool.GDB).setBreakpoint()
 }
