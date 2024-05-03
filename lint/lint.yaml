@@ -1,0 +1,11 @@
+config:
+  validation: true
+  excludes: ''
+
+HbmartinRuleSet:
+  NoCallbacksInFunctions:
+    active: true
+    ignoreAnnotated: [ 'Composable', 'InlineFun' ]
+    allowExtensions: false
+    allowReceivers: false
+

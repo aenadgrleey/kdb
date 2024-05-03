@@ -5,6 +5,7 @@ ksp = "2.0.0-RC2-1.0.20"
 kinject = "0.6.3"
 detekt = "1.23.6"
 napier = "2.6.1"
+okio = "3.9.0"
 
 [libraries]
 kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }

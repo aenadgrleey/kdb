@@ -1,15 +1,15 @@
 package com.aenadgrleey.kdb.plugins
 
+import com.aenadgrleey.kdb.utils.detektPlugins
+import com.aenadgrleey.kdb.utils.implementation
+import com.aenadgrleey.kdb.utils.library
+import com.aenadgrleey.kdb.utils.libs
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.dependencies
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
-import com.aenadgrleey.kdb.utils.detektPlugins
-import com.aenadgrleey.kdb.utils.implementation
-import com.aenadgrleey.kdb.utils.library
-import com.aenadgrleey.kdb.utils.libs
 
 class KotlinConfig : Plugin<Project> {
     override fun apply(target: Project) {
@@ -27,12 +27,18 @@ class KotlinConfig : Plugin<Project> {
             .configure(DetektExtension::class.java) {
                 autoCorrect = true
                 isIgnoreFailures = false
+                buildUponDefaultConfig = true
+                config.setFrom(target.rootDir.path + "/lint/lint.yaml")
             }
 
 
-        val check = target.tasks.findByName("check")!!
         val detekt = target.tasks.findByName("detekt")!!
-        check.dependsOn(detekt)
+
+        val check = target.tasks.findByName("check")!!
+        check.finalizedBy(detekt)
+
+        val compile = target.tasks.findByName("compileKotlin")!!
+        compile.finalizedBy(detekt)
 
         val libs = target.libs
         target.dependencies {

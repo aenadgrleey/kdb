@@ -1,6 +1,6 @@
 package com.aenadgrleey.kdb.setter
 
 interface BreakpointSetter {
-    fun setBreakpoint()
-    fun setWatchpoint()
+    fun setBreakpoint(): Result<Unit>
+    fun setWatchpoint(): Result<Unit>
 }

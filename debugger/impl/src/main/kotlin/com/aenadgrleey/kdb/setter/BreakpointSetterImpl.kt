@@ -1,11 +1,9 @@
 package com.aenadgrleey.kdb.setter
 
-class BreakpointSetterImpl : BreakpointSetter {
-    override fun setBreakpoint() {
-        TODO("Not yet implemented")
-    }
+import com.aenadgrleey.kdb.utils.loggedRunCatching
 
-    override fun setWatchpoint() {
-        TODO("Not yet implemented")
-    }
+class BreakpointSetterImpl : BreakpointSetter {
+    override fun setBreakpoint(): Result<Unit> = loggedRunCatching { }
+
+    override fun setWatchpoint(): Result<Unit> = loggedRunCatching { }
 }
