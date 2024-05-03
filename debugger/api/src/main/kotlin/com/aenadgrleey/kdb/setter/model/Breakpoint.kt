@@ -2,7 +2,12 @@ package com.aenadgrleey.kdb.setter.model
 
 import java.nio.file.Path
 
-sealed interface Breakpoint {
-    val name: String
+data class Breakpoint(
+    val name: String,
     val filePath: Path
-}
+)
+
+data class Watchpoint(
+    val propertyName: String,
+    val value: Any?
+)
