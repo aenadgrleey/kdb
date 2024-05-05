@@ -1,10 +1,14 @@
 package com.aenadgrleey.kdb.utils
 
 import kotlinx.coroutines.Deferred
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @InlineFun
-suspend inline fun <T> Deferred<T>.onReady(block: (T) -> Unit): T {
+suspend inline fun <T, R> Deferred<T>.onReady(block: T.() -> R): R {
     val value = await()
-    block(value)
-    return value
+    return block(value)
 }
+
+@OptIn(ExperimentalCoroutinesApi::class)
+fun <T> Deferred<T>.getOrNull(): T? =
+    if (isCompleted) getCompleted() else null

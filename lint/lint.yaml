@@ -8,4 +8,15 @@ HbmartinRuleSet:
     ignoreAnnotated: [ 'Composable', 'InlineFun' ]
     allowExtensions: false
     allowReceivers: false
+  AvoidVarsExceptWithDelegate:
+    active: false
+  MutableTypeShouldBePrivate:
+    active: false
+
+formatting:
+  ImportOrdering:
+    active: false
+style:
+  ReturnCount:
+    active: false
 

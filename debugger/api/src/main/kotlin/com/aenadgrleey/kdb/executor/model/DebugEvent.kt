@@ -13,14 +13,13 @@ data class WatchpointEvent(
     val event: Event,
     val watchpoint: Watchpoint
 ) : DebugEvent {
-    enum class Event { Read, Write }
+    enum class Event { Read, Access, Triggered, OutOfScope }
 }
 
-data class ProgramError(
-    val errorMessage: String
+data object ExecutionStart : DebugEvent
+
+data class ExecutionBreak(
+    val errorCode: Int?
 ) : DebugEvent
 
-data class DebugError(
-    val errorMessage: String,
-    val error: Any? = null
-) : DebugEvent
+data object ExecutionFinished : DebugEvent
